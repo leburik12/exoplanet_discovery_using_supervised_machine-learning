@@ -221,6 +221,45 @@ It computes metrics like accuracy, precision, recall, F1, AUROC, and AUPRC per f
 | **Class Imbalance**     | `scale_pos_weight`, early stopping, and weighted loss| No built-in mechanisms; requires resampling          |
 | **Interpretability**    | Feature importances, SHAP values                      | Black-box distances; hard to explain                  |
 
+## 📊 Model Evaluation Summary — XGBoost Classifier
+
+The following metrics represent the **mean cross-validated performance** of the `XGBoost` classifier trained on the transformed exoplanet dataset. These results were obtained using a 10-fold `StratifiedKFold` strategy to preserve class distribution across splits. The pipeline included imputation, scaling, and calibrated classification.
+
+---
+
+### 🔢 Core Performance Metrics
+
+| **Metric**               | **Score** |
+|--------------------------|-----------|
+| Accuracy                 | 0.9990    |
+| Precision                | 0.9990    |
+| Recall                   | 0.9990    |
+| F1 Score                 | 0.9990    |
+| Cohen’s Kappa            | 0.9375    |
+| Matthews Correlation Coefficient (MCC) | 0.9387    |
+| Log Loss                 | 0.0035    |
+| Brier Score Loss         | 0.0008    |
+| ROC AUC                  | 0.9998    |
+| Average Precision (AP)   | 0.9832    |
+
+---
+
+### 📈 Classification Report
+
+This table shows **per-class performance metrics** for the binary classification task (`is_habitable`), averaged across folds:
+
+| **Class** | **Precision** | **Recall** | **F1-Score** | **Support** |
+|-----------|---------------|------------|--------------|-------------|
+| 0.0 (Non-Habitable) | 0.9997        | 0.9993     | 0.9995       | 3812.7      |
+| 1.0 (Habitable)     | 0.9182        | 0.9625     | 0.9380       | 32.2        |
+| **Macro Avg**       | 0.9590        | 0.9809     | 0.9688       | 3844.9      |
+| **Weighted Avg**    | 0.9990        | 0.9990     | 0.9990       | 3844.9      |
+
+> ✅ **Interpretation**:
+> - **Extremely high overall accuracy** and **ROC AUC** indicate the classifier distinguishes habitable vs. non-habitable exoplanets with near-perfect precision.
+> - The **precision-recall gap** on class `1.0` reflects the model’s conservative detection of rare habitable candidates, critical in scientific discovery settings.
+---
+
 
 ### 📬 Contact
 

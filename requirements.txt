@@ -1,0 +1,22 @@
+# === Core Scientific Libraries ===
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.13.0
+
+matplotlib==3.9.0
+
+scikit-learn==1.3.2
+imbalanced-learn==0.11.0
+
+# === Specialized Tools ===
+astropy==6.0.0          # Planetary constants (e.g. R_earth)
+dcor==0.6               # Distance correlation metrics
+imblearn==0.0           # For SMOTE; actual code in imbalanced-learn
+
+
+# === ML Models ===
+xgboost==2.0.3
+
+# === Optional: For Reproducibility & Typing ===
+typing-extensions>=4.11.0
+
